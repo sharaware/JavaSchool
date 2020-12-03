@@ -29,3 +29,92 @@ https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html
     execute()  - выполнение команды.
 
 На старте в программе инициализируется массив с набором команд, которые может исполнять программа Shell.
+
+## Lesson3
+Дописать реализацию метода get (получение объекта), разобраться с приведением типа к/от Object.
+
+Кусок кода с лекции:
+```
+package ru.sbrf.demo;
+
+/*
+  root
+    |
+    +-------+      +-----+     
+    | data  |      | data|     
+    | next  |--->  | next| --> null
+    +-------+      +-----+     
+ */
+
+class Node {
+    public Node(Object data) {
+        this.data = data;
+    }
+    Object data;
+    Node next;
+}
+
+public class LList {
+    private Node root;
+
+    public void add(Object item) {
+        Node tmpItem = new Node(item);
+        Node lastItem = findLast();
+
+        if (lastItem != null) {
+            lastItem.next = tmpItem;
+        } else {
+            root = tmpItem;
+        }
+    }
+
+    public Object get(int id) {
+        // TODO
+        return null;
+    }
+
+    public int size() {
+        int size = 0;
+
+        if (root == null)
+            return 0;
+        else {
+            size = 1;
+
+            Node current = root;
+            while (current.next != null) {
+                size++;
+                current = current.next;
+            }
+        }
+
+        return size;
+    }
+
+
+    Node findLast() {
+        if (root == null)
+            return null;
+        else {
+            Node current = root;
+
+            while (current.next != null) {
+                current = current.next;
+            }
+
+            return current;
+        }
+    }
+}
+```
+
+## Lesson4
+Домашнее задание
+1. Создать лист из своих объектов (10-15 элементов в списке). Добавить, удалить и т.д.
+2. Добавить дубли в список (1 - несколько раз один и тот же объект, 2 - дубль должен быть новым объектом с теми же параметрами, что уже имеет один из существующих в списке)
+3. Вывести список элементов в читабельном виде.
+4. Создать неповторяющееся упорядоченное множество с использованием компаратора и перенести значения из созданного листа. 
+5. Обход дерева с помощью forEach и iterator (подсчет или конкатинация из объектов коллекции используя условие, например "все начинаются с буквы", "больше какого-то значения")
+6. Удалить третий элемент из множества.
+7. Из существующей коллекции объектов создать ассоциативную карту, где ключ - объект, а значение - коллекция
+8. Из существующей карты создать другую, в которой ключ остается прежним, а значение - вычисленное значение чего-либо из коллекции для ключа (по нескольким вариантам значений)
