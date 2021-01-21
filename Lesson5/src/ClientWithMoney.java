@@ -1,9 +1,9 @@
 import java.math.BigDecimal;
 
-public class ClientWtihMoney extends FullClient {
+public class ClientWithMoney extends FullClient {
     private BigDecimal balance;
 
-    ClientWtihMoney(String name, int id, BigDecimal balance) {
+    ClientWithMoney(String name, int id, BigDecimal balance) {
         super(name, id);
         this.balance = balance;
     }

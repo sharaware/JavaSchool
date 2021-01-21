@@ -1,5 +1,3 @@
-import java.util.Spliterator;
-
 public class SpellingWizard implements AutoCloseable {
     private boolean mouth_opened = false;
 

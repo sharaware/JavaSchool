@@ -10,12 +10,12 @@ public class Lesson5 {
         /////////////////
         System.out.println("=============== Task 1 ================");
         List<Client> clients = new ArrayList<>();
-        clients.add(new ClientWtihMoney("Elon Musk", 123, BigDecimal.valueOf(1000000000.01)));
+        clients.add(new ClientWithMoney("Elon Musk", 123, BigDecimal.valueOf(1000000000.01)));
         clients.add(new Client("Socrates"));
         clients.add(new FullClient("Adam", 1));
 
         List<FullClient> fullClients = new ArrayList<>();
-        List<ClientWtihMoney> richClients = new ArrayList<>();
+        List<ClientWithMoney> richClients = new ArrayList<>();
         new Lesson5().noMoneyPlease(fullClients);
         //error
         //new Lesson5().noMoneyPlease(richClients);
