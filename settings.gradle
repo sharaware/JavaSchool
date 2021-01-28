@@ -1,0 +1,8 @@
+rootProject.name = 'JavaSchool'
+include 'Lesson1'
+include 'Lesson2'
+include 'Lesson3'
+include 'Lesson4'
+include 'Lesson5'
+include 'Lesson6'
+include 'Lesson7'

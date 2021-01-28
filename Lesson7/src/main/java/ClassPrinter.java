@@ -62,7 +62,7 @@ public class ClassPrinter {
                     System.out.print(", ");
                 }
             }
-            System.out.print(">");
+            System.out.print("> ");
         } else {
             System.out.print(cls.getSimpleName() + " ");
         }

@@ -1,0 +1,11 @@
+plugins {
+    id 'application'
+}
+
+application {
+    getMainClass().set('Task5')
+}
+
+run{
+    standardInput = System.in
+}

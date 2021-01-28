@@ -1,8 +1,8 @@
+import model.ClientWithMoney;
+
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 
 public class Lesson7 {
     static class Foo {
@@ -35,7 +35,7 @@ public class Lesson7 {
 
         ClientWithMoney client = new ClientWithMoney("me", 1, BigDecimal.valueOf(100));
 
-        //ClassPrinter.print(foo.getClass(), true);
-        ClassPrinter.print(client.getClass(), true);
+        ClassPrinter.print(foo.getClass(), true);
+        //ClassPrinter.print(client.getClass(), true);
     }
 }
