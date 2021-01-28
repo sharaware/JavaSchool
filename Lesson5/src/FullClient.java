@@ -1,5 +1,3 @@
-package model;
-
 public class FullClient extends Client {
     private int id;
 

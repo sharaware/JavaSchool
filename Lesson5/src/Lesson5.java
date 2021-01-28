@@ -1,9 +1,3 @@
-import calc.IdCalculator;
-import calc.NameCalculator;
-import model.Client;
-import model.ClientWithMoney;
-import model.FullClient;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;

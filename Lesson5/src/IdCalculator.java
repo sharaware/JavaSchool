@@ -1,7 +1,3 @@
-package calc;
-
-import model.FullClient;
-
 /////////////////
 //    Task 4   //
 /////////////////
