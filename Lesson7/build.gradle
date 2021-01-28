@@ -1,0 +1,16 @@
+plugins {
+    id 'application'
+}
+
+application {
+    getMainClass().set('Lesson7')
+}
+
+dependencies {
+    implementation project(':Lesson4')
+    implementation project(':Lesson5')
+}
+
+run {
+    standardInput = System.in
+}
