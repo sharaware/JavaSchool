@@ -1,0 +1,11 @@
+plugins {
+    id 'application'
+}
+
+application {
+    getMainClass().set('Lesson6')
+}
+
+run{
+    standardInput = System.in
+}
