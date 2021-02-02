@@ -1,0 +1,15 @@
+plugins {
+    id 'application'
+}
+
+application {
+    getMainClass().set('com.homework.logging.Main')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+}
