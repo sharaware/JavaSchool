@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Tasks {
     public static void main(String[] args) {
@@ -18,6 +20,14 @@ public class Tasks {
             }
         }
         System.out.println(powersOfTwo);
+        System.out.println(Stream.iterate(0, i -> ++i)
+                .limit(15)
+                .map(i -> 1 << i)
+                .collect(Collectors.toList()));
+        System.out.println(Stream.iterate(0, i -> ++i)
+                .map(i -> 1 << i)
+                .takeWhile(i -> i <= 1024)
+                .collect(Collectors.toList()));
 
 
         //2.Добавить дубли в список (1 - несколько раз один и тот же объект, 2 - дубль должен быть новым
@@ -45,11 +55,13 @@ public class Tasks {
         // используя условие, например "все начинаются с буквы", "больше какого-то значения")
         System.out.println("=============== Task 5 ================");
         Set<Book> books = getMyBooks();
-        int cnt = 0;
+        long cnt = 0;
         for (Book book : books) {
             if (book.getPageCount() > 300)
                 cnt++;
         }
+        System.out.println("В списке " + cnt + " книг, в которых больше 300 страниц");
+        cnt = books.stream().filter(b -> b.getPageCount() > 300).count();
         System.out.println("В списке " + cnt + " книг, в которых больше 300 страниц");
         Iterator<Book> bookIterator = books.iterator();
         cnt = 0;
@@ -57,6 +69,8 @@ public class Tasks {
             if (bookIterator.next().getAuthor().getName().startsWith("Л"))
                 cnt++;
         }
+        System.out.println("В списке " + cnt + " книг, имя автора которых начинается с буквы Л");
+        cnt = books.stream().filter(b -> b.getAuthor().getName().startsWith("Л")).count();
         System.out.println("В списке " + cnt + " книг, имя автора которых начинается с буквы Л");
 
         //6. Удалить третий элемент из множества.
@@ -89,6 +103,7 @@ public class Tasks {
             bookMap.get(author).add(book);
         }
         System.out.println(bookMap);
+        System.out.println(books.stream().collect(Collectors.groupingBy(Book::getAuthor)));
 
 
         //8. Из существующей карты создать другую, в которой ключ остается прежним,
@@ -104,6 +119,8 @@ public class Tasks {
             pageCnt.put(entry.getKey(), sum);
         }
         System.out.println(pageCnt);
+        System.out.println(books.stream()
+                .collect(Collectors.groupingBy(Book::getAuthor, Collectors.summingInt(Book::getPageCount))));
     }
 
     static TreeSet<Book> getMyBooks() {

@@ -8,16 +8,8 @@ import java.util.*;
 
 public interface Calculator<T, V> {
     default V max(Collection<? extends T> collection) {
-        if (collection.isEmpty()) {
-            return null;
-        }
-        V maxVal = null;
-        for (T next : collection) {
-            if (maxVal == null || compare(getValue(next), maxVal) > 0) {
-                maxVal = getValue(next);
-            }
-        }
-        return maxVal;
+        Optional<? extends T> res = collection.stream().max((a,b) -> compare(getValue(a), getValue(b)));
+        return res.map(this::getValue).orElse(null);
     }
 
     default List<T> sort(Collection<? extends T> collection) {

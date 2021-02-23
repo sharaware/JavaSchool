@@ -1,5 +1,6 @@
 import java.lang.reflect.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ClassPrinter {
     private static final ArrayList<Method> methods = new ArrayList<>();
@@ -56,12 +57,7 @@ public class ClassPrinter {
             ParameterizedType ptype = (ParameterizedType) type;
             Type[] params = ptype.getActualTypeArguments();
             System.out.print(cls.getSimpleName() + "<");
-            for(int i = 0; i < params.length; i++) {
-                System.out.print(params[i].getTypeName());
-                if (i < params.length - 1) {
-                    System.out.print(", ");
-                }
-            }
+            System.out.print(Arrays.stream(params).map(Type::getTypeName).collect(Collectors.joining(", ")));
             System.out.print("> ");
         } else {
             System.out.print(cls.getSimpleName() + " ");
@@ -117,12 +113,9 @@ public class ClassPrinter {
 
     private static void printParams(Parameter[] params) {
         System.out.print("(");
-        for (int i = 0; i < params.length; i++) {
-            System.out.print(params[i].getType().getSimpleName());
-            if(i != params.length - 1) {
-                System.out.print(", ");
-            }
-        }
+        System.out.print(Arrays.stream(params)
+                .map(p -> p.getType().getSimpleName())
+                .collect(Collectors.joining(", ")));
         System.out.println(")");
     }
 
